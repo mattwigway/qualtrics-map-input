@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Qualtrics-Protomaps Test`</title>
+    </head>
+    <body>
+        <div id="map" style="width: 1200px; height: 800px" />
+
+        <script type="text/javascript">
+            window.addEventListener("load", () => {
+                QualtricsMapInput.qualtricsProtomapsPinDrop("map", "location", 35.9050, -79.04952, 15, "pmtiles://http://127.0.0.1:8080/chapel_hill.pmtiles")
+            })
+        </script>
+    </body>
+</html>
