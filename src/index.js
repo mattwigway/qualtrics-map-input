@@ -33,7 +33,7 @@ export function qualtricsProtomapsPinDrop (divId, embeddedDataName, centerLat, c
         style: {
             version: 8,
             glyphs:'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
-            sprite: "https://protomaps.github.io/basemaps-assets/sprites/v3/dark",
+            sprite: "https://protomaps.github.io/basemaps-assets/sprites/v3/light",
             sources: {
                 "protomaps": {
                     type: "vector",
@@ -41,7 +41,7 @@ export function qualtricsProtomapsPinDrop (divId, embeddedDataName, centerLat, c
                     attribution: '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>'
                 }
             },
-            layers: layers("protomaps","dark")
+            layers: layers("protomaps","light")
         },
         center: [centerLon, centerLat],
         zoom: zoom
