@@ -2,7 +2,10 @@ import maplibregl from "maplibre-gl"
 import "maplibre-gl/dist/maplibre-gl.css"
 import Qualtrics from "./qualtrics.js"
 import { Protocol } from "pmtiles"
-import layers from "protomaps-themes-base"
+// not working with latest protomaps until this is released:
+// https://github.com/protomaps/basemaps/pull/301
+//import layers from "protomaps-themes-base"
+import lightStyle from "./light-style.js"
 
 Qualtrics.SurveyEngine.addOnload(() => {
     // set up protomaps
@@ -28,21 +31,12 @@ function recordLngLat (lngLat, embeddedDataName) {
 export function qualtricsProtomapsPinDrop (divId, embeddedDataName, centerLat, centerLon, zoom, pmtilesUrl) {
     const prefixedUrl = pmtilesUrl.startsWith("pmtiles://") ? pmtilesUrl : "pmtiles://" + pmtilesUrl
 
+    const style = Object.assign({}, lightStyle)
+    style.sources.protomaps.url = prefixedUrl
+
     const map = new maplibregl.Map({
         container: divId,
-        style: {
-            version: 8,
-            glyphs:'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
-            sprite: "https://protomaps.github.io/basemaps-assets/sprites/v3/light",
-            sources: {
-                "protomaps": {
-                    type: "vector",
-                    url: prefixedUrl,
-                    attribution: '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>'
-                }
-            },
-            layers: layers("protomaps","light")
-        },
+        style: style,
         center: [centerLon, centerLat],
         zoom: zoom
     })
