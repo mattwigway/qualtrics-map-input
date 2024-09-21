@@ -17,7 +17,7 @@ if (window.Qualtrics !== undefined) {
             addOnReady: function (f) {
                 window.addEventListener("load", f)
             },
-            addOnunload: function (f) {
+            addOnUnload: function (f) {
                 window.addEventListener("unload", f)
             },
             setEmbeddedData: function (k, v) {

@@ -13,7 +13,7 @@ Qualtrics.SurveyEngine.addOnload(() => {
     maplibregl.addProtocol("pmtiles", protocol.tile)
 })
 
-Qualtrics.SurveyEngine.addOnunload(() => {
+Qualtrics.SurveyEngine.addOnUnload(() => {
     // tear down protomaps
     maplibregl.removeProtocol("pmtiles")
 })
